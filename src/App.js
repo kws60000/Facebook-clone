@@ -22,6 +22,7 @@ function App() {
                 <span id="fb-info">
                   <img className="header-profile" src={profile} />
                   <span>김우석</span>
+                  pull request 확인을 위하여
                 </span>
                 <span class="fb-spliter"> | </span>
                 <span id="fb-home">홈</span>
