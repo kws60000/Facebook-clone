@@ -21,6 +21,7 @@ function App() {
               <div id="header-info-content">
                 <span id="fb-info">
                   <img className="header-profile" src={profile} />
+                  풀리퀘스트확인
                   <span>김우석</span>
                 </span>
                 <span class="fb-spliter"> | </span>
