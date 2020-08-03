@@ -15,6 +15,7 @@ function App() {
               <input type="text" placeholder="검색" />
               <button type="submit">
                 <img className="header-search" src={search} />
+                compare 확인
               </button>
             </form>
             <div id="header-info">
