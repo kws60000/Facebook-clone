@@ -1,5 +1,7 @@
 import React from "react";
 import profile from "./assets/profile.png";
+import search from "./assets/search.PNG";
+import logo from "./assets/logo.png";
 import "./App.css";
 
 function App() {
@@ -8,19 +10,17 @@ function App() {
       <body>
         <header id="main-header-wrapper">
           <div id="main-header">
-            <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            <img className="header-logo" src={logo} />
             <form id="search-form">
-              <i class="fa fa-facebook-official" aria-hidden="true"></i>
-
-              <input type="text" placeholder="Search Facebook" />
+              <input type="text" placeholder="검색" />
               <button type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
+                <img className="header-search" src={search} />
               </button>
             </form>
             <div id="header-info">
               <div id="header-info-content">
                 <span id="fb-info">
-                  <img src={profile} />
+                  <img className="header-profile" src={profile} />
                   <span>김우석</span>
                 </span>
                 <span class="fb-spliter"> | </span>

@@ -122,16 +122,11 @@ div#header-info-content {
 }
 
 #fb-info {
-  width: 80px;
+  width: 90px;
   height: 26px;
 }
 
-#fb-info img {
-  width: 26px;
-  height: 26px;
-  border-radius: 3px;
-  transform: translateY(7px);
-}
+
 
 #fb-info span {
   height: 26px;
@@ -1254,4 +1249,23 @@ section#main-body:after {
 
 .icon-payment {
   background-position: 0 -1101px;
+}
+
+.header-logo {
+  padding-top: 10px;
+  padding-right: 10px;
+  float: left;
+  width: 3%;
+}
+
+.header-search {
+  width: 50%;
+}
+
+.header-profile {
+  padding-right: 10px;
+  width: 36px;
+  height: 26px;
+  border-radius: 3px;
+  transform: translateY(7px);
 }
