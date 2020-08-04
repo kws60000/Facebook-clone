@@ -2,6 +2,9 @@ import React from "react";
 import profile from "./assets/profile.png";
 import search from "./assets/search.PNG";
 import logo from "./assets/logo.png";
+import like from "./assets/like.PNG";
+import chatbox from "./assets/chatbox.PNG";
+import share from "./assets/share.PNG";
 import "./App.css";
 
 function App() {
@@ -45,21 +48,25 @@ function App() {
               <form id="post-status" class="fb-box">
                 <div id="status-content">
                   <img src={profile} />
+
                   <input type="text" placeholder="무슨 생각을 하고 계신가요?" />
                 </div>
                 <div id="status-photo">
                   <span class="status-photo-span">
-                    <i class="fa fa-camera" aria-hidden="true"></i>
-                    사진 추가
+                    <label for="file-upload" class="custom-file-upload">
+                      사진추가
+                    </label>
                   </span>
                   <span class="status-photo-span">
-                    <i class="fa fa-book" aria-hidden="true"></i>
-                    동영상 추가
+                    <label for="file-upload" class="custom-file-upload">
+                      동영상추가
+                    </label>
                   </span>
+
+                  <input id="file-upload" type="file" />
                 </div>
 
                 <div id="status-action">
-                  <div id="status-reaction"></div>
                   <div id="status-button">
                     <button type="submit" class="button-hover">
                       게시
@@ -83,16 +90,19 @@ function App() {
                 <div class="user-post-content">
                   <img src={profile} />
                 </div>
-                <div class="user-post-reaction">
-                  <span class="user-post-active">
-                    <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
-                  </span>
-                  <span>
-                    <i class="fa fa-comment" aria-hidden="true"></i> Comment
-                  </span>
-                  <span>
-                    <i class="fa fa-share" aria-hidden="true"></i> Share
-                  </span>
+
+                <div class="box-buttons">
+                  <div class="row">
+                    <button>
+                      <img src={like} />
+                    </button>
+                    <button>
+                      <img src={chatbox} />
+                    </button>
+                    <button>
+                      <img src={share} />
+                    </button>
+                  </div>
                 </div>
               </div>
             </section>
@@ -100,49 +110,46 @@ function App() {
               <div class="fb-box">
                 <ul class="language-wrapper">
                   <li>
-                    <a href="#">English (US)</a> ·{" "}
+                    <a>한국어</a> ·
                   </li>
                   <li>
-                    <a href="#">Tiếng Việt</a> ·{" "}
+                    <a>English(Us)</a> ·
                   </li>
                   <li>
-                    <a href="#">中文(台灣)</a> ·{" "}
+                    <a>中文(중국)</a> ·
                   </li>
                   <li>
-                    <a href="#">Español</a> ·{" "}
+                    <a>Español</a> ·
                   </li>
                   <li>
-                    <a href="#">Português (Brasil)</a>
+                    <a>Português (Brasil)</a>
                   </li>
                 </ul>
-                <span class="language-plus span-button">
-                  <i class="fa fa-plus" aria-hidden="true"></i>
-                </span>
               </div>
               <ul class="language-wrapper">
                 <li>
-                  <a href="#">Privacy</a> ·{" "}
+                  <a>Privacy</a> ·
                 </li>
                 <li>
-                  <a href="#">Terms</a> ·{" "}
+                  <a>Terms</a> ·
                 </li>
                 <li>
-                  <a href="#">Advertising</a> ·{" "}
+                  <a>Advertising</a> ·
                 </li>
                 <li>
-                  <a href="#">Ad Choices</a> ·{" "}
+                  <a>Ad Choices</a> ·
                 </li>
                 <li>
-                  <a href="#">Cookies</a> ·{" "}
+                  <a>Cookies</a> ·
                 </li>
                 <li>
                   <a href="#">
                     More <i class="fa fa-caret-down" aria-hidden="true"></i>
-                  </a>{" "}
+                  </a>
                 </li>
               </ul>
               <span class="footer">Facebook &copy; 2020</span>
-              <span class="footer">Design by ThinhLP</span>
+              <span class="footer">Design by Dylan</span>
             </aside>
           </section>
         </section>
