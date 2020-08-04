@@ -55,12 +55,14 @@ const Homepage = () => {
                   </div>
                   <div id="status-photo">
                     <span class="status-photo-span">
-                      <label for="file-upload" class="custom-file-upload">
+                      <input id="picture-upload" type="file" />
+                      <label for="picture-upload" class="custom-file-upload">
                         사진추가
                       </label>
                     </span>
                     <span class="status-photo-span">
-                      <label for="file-upload" class="custom-file-upload">
+                      <input id="video-upload" type="file" />
+                      <label for="video-upload" class="custom-file-upload">
                         동영상추가
                       </label>
                     </span>
