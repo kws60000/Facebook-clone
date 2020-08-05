@@ -1,12 +1,5 @@
 import React from "react";
-import profile from "../assets/profile.png";
-
-import background from "../assets/background.jpg";
-import camera from "../assets/camera.png";
-
-import like from "../assets/like.PNG";
-import chatbox from "../assets/chatbox.PNG";
-import share from "../assets/share.PNG";
+import Post from "./Post";
 
 import produce from "../assets/produce.png";
 import home from "../assets/home.png";
@@ -20,47 +13,13 @@ import pop6 from "../assets/pop6.PNG";
 import pop7 from "../assets/pop7.PNG";
 
 import "./Privatepage.css";
+import Myheader from "./Myheader";
 
 function Privatepage() {
   return (
     <div className="App">
       <body>
-        <div class="container">
-          <div class="wrap">
-            <input id="background-picture-upload" type="file" />
-            <label for="background-picture-upload">
-              <img className="background-camera" src={camera} alt={camera} />
-            </label>
-            <button className="background-save">배경 저장</button>
-            <input id="profile-picture-upload" type="file" />
-            <label for="profile-picture-upload">
-              <img className="profile-camera" src={camera} alt={camera} />
-            </label>
-            <button className="profile-save">프로필 저장</button>
-            <img src={profile} class="photo" alt={profile}></img>
-            <img src={background} class="top" alt={background}></img>
-            <p class="button1">프로필 수정</p>
-            <div class="bottom">
-              <ul class="navigation">
-                <li>
-                  <div href="">타임라인</div>
-                </li>
-                <li>
-                  <div href="">정보</div>
-                </li>
-                <li>
-                  <div href="">친구</div>
-                </li>
-                <li>
-                  <div href="">사진</div>
-                </li>
-                <li>
-                  <div href="">더보기</div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <Myheader />
 
         <div class="middle">
           <div class="layout">
@@ -114,75 +73,8 @@ function Privatepage() {
                 </div>
               </div>
             </div>
-            <div class="right">
-              <div class="makepost">
-                <form id="post-status" class="fb-box">
-                  <div id="status-content">
-                    <img src={profile} alt={profile} />
 
-                    <input
-                      type="text"
-                      placeholder="무슨 생각을 하고 계신가요?"
-                    />
-                  </div>
-                  <div id="status-photo">
-                    <span class="status-photo-span">
-                      <input id="picture-upload" type="file" />
-                      <label for="picture-upload" class="custom-file-upload">
-                        사진추가
-                      </label>
-                    </span>
-                    <span class="status-photo-span">
-                      <input id="video-upload" type="file" />
-                      <label for="video-upload" class="custom-file-upload">
-                        동영상추가
-                      </label>
-                    </span>
-                  </div>
-
-                  <div id="status-action">
-                    <div id="status-button">
-                      <button type="submit" class="button-hover">
-                        게시
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-
-              <div class="timeline-post">
-                <div class="user-post fb-box">
-                  <div class="user-post-title">
-                    <div className="post-title-profile">
-                      <img src={profile} alt={profile} />
-                    </div>
-                    <span>
-                      <div>김우석</div>
-                    </span>
-                    <span>
-                      1시간 전 <i class="fa fa-globe" aria-hidden="true"></i>{" "}
-                    </span>
-                  </div>
-                  <div class="user-post-content">
-                    <img src={profile} alt={profile} />
-                  </div>
-
-                  <div class="box-buttons">
-                    <div class="row">
-                      <button>
-                        <img src={like} alt={like} />
-                      </button>
-                      <button>
-                        <img src={chatbox} alt={chatbox} />
-                      </button>
-                      <button>
-                        <img src={share} alt={share} />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Post />
           </div>
         </div>
       </body>

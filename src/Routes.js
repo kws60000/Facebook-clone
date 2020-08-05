@@ -4,6 +4,7 @@ import Homepage from "./components/Homepage";
 import Picturepage from "./components/Picturepage";
 import Privatepage from "./components/Privatepage";
 import Profileedit from "./components/Profileedit";
+import Myheader from "./components/Myheader";
 
 const Routes = () => {
   return (
@@ -12,6 +13,7 @@ const Routes = () => {
       <Route path="/Picture" component={Picturepage} />
       <Route path="/Private" component={Privatepage} />
       <Route path="/ProfileEdit" component={Profileedit} />
+      <Route path="/Myheader" component={Myheader} />
     </Switch>
   );
 };
