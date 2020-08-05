@@ -11,12 +11,12 @@ import chatbox from "../assets/chatbox.PNG";
 import share from "../assets/share.PNG";
 
 import produce from "../assets/produce.png";
-import picturebook from "../assets/picturebook.png";
-
 import home from "../assets/home.png";
 import job from "../assets/job.png";
 import hometown from "../assets/hometown.png";
 import school from "../assets/school.png";
+
+import picturebook from "../assets/picturebook.png";
 import pop5 from "../assets/pop5.PNG";
 import pop6 from "../assets/pop6.PNG";
 import pop7 from "../assets/pop7.PNG";
