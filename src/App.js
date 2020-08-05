@@ -1,10 +1,10 @@
 import React from "react";
-import Profileedit from "./components/Profileedit";
+import Picturepage from "./components/Picturepage";
 
 const App = () => {
   return (
     <div>
-      <Profileedit />
+      <Picturepage />
     </div>
   );
 };
