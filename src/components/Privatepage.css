@@ -1,5 +1,6 @@
 *,
 
+
 html {
   padding: 0;
   margin: 0;
@@ -19,10 +20,6 @@ body {
   min-width: 1340px;
 }
 
-a {
-  text-decoration: none;
-  color: #000;
-}
 
 #main-header-wrapper {
   background-color: #3B5998;
@@ -87,7 +84,6 @@ div#header-info {
   width: 310px;
   display: inline-block;
   height: 26px;
-  float: right;
   transform: translateY(10px);
 }
 
@@ -145,6 +141,7 @@ div#header-info-content {
 .header-logo {
   padding-top: 10px;
   padding-right: 10px;
+  margin-left: 200px;
   float: left;
   width: 2.6%;
 }
@@ -291,7 +288,7 @@ div#header-info-content {
   border-left: 1px solid #e9eaed;
 }
 
-.navigation>li>a {
+.navigation>li>div {
   color: #365899;
   text-decoration: none
 }
@@ -557,7 +554,7 @@ input[type="file"] {
   height: 41px;
 }
 
-.user-post-title a {
+.user-post-title div {
   color: #3454AB;
   font-weight: bold;
 }
@@ -572,7 +569,7 @@ input[type="file"] {
   margin-top: 3px;
 }
 
-.user-post-title>a>img {
+.user-post-title>div>img {
   width: 41px;
   height: 41px;
 }

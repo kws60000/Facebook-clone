@@ -1,10 +1,10 @@
 import React from "react";
-import Privatepage from "./components/Privatepage";
+import Profileedit from "./components/Profileedit";
 
 const App = () => {
   return (
     <div>
-      <Privatepage />
+      <Profileedit />
     </div>
   );
 };
