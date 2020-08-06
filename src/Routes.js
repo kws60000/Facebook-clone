@@ -1,10 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Homepage from "./components/Homepage";
-import Picturepage from "./components/Picturepage";
-import Privatepage from "./components/Privatepage";
-import Profileedit from "./components/Profileedit";
-import Myheader from "./components/Myheader";
+import Homepage from "./pages/Homepage";
+import Picturepage from "./pages/Picturepage";
+import Privatepage from "./pages/Privatepage";
+import Profileedit from "./pages/Profileedit";
 
 const Routes = () => {
   return (
@@ -13,7 +12,6 @@ const Routes = () => {
       <Route path="/Picture" component={Picturepage} />
       <Route path="/Private" component={Privatepage} />
       <Route path="/ProfileEdit" component={Profileedit} />
-      <Route path="/Myheader" component={Myheader} />
     </Switch>
   );
 };

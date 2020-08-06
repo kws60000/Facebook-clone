@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import profile from "../assets/profile.png";
+import { connect } from "react-redux";
+import { addPost } from "../modules/addSome";
 
+import profile from "../assets/profile.png";
 import like from "../assets/like.PNG";
 import chatbox from "../assets/chatbox.PNG";
 import share from "../assets/share.PNG";
 
-const Post = () => {
+const Post = ({ onClickAddPost, addSome }) => {
   const [upText, setUpText] = useState("");
 
   const onChangeText = (e) => {
-    setUpText(e.tartet.value);
+    setUpText(e.target.value);
   };
 
   return (
@@ -44,49 +46,70 @@ const Post = () => {
 
             <div id="status-action">
               <div id="status-button">
-                <button type="submit" class="button-hover">
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClickAddPost({
+                      id: Math.random(),
+                      upText,
+                    });
+                  }}
+                  class="button-hover"
+                >
                   게시
                 </button>
               </div>
             </div>
           </form>
         </div>
+        {addSome.map((post) => (
+          <article key={post.id}>
+            <div class="timeline-post">
+              <div class="user-post fb-box">
+                <div class="user-post-title">
+                  <div className="post-title-profile">
+                    <img src={profile} alt={profile} />
+                  </div>
+                  <span>
+                    <div>김우석</div>
+                  </span>
+                  <span>
+                    1시간 전 <i class="fa fa-globe" aria-hidden="true"></i>{" "}
+                  </span>
+                </div>
+                {post.upText}
+                <div class="user-post-content"></div>
 
-        <div class="timeline-post">
-          <div class="user-post fb-box">
-            <div class="user-post-title">
-              <div className="post-title-profile">
-                <img src={profile} alt={profile} />
-              </div>
-              <span>
-                <div>김우석</div>
-              </span>
-              <span>
-                1시간 전 <i class="fa fa-globe" aria-hidden="true"></i>{" "}
-              </span>
-            </div>
-            <div class="user-post-content">
-              <img src={profile} alt={profile} />
-            </div>
-
-            <div class="box-buttons">
-              <div class="row">
-                <button>
-                  <img src={like} alt={like} />
-                </button>
-                <button>
-                  <img src={chatbox} alt={chatbox} />
-                </button>
-                <button>
-                  <img src={share} alt={share} />
-                </button>
+                <div class="box-buttons">
+                  <div class="row">
+                    <button>
+                      <img src={like} alt={like} />
+                    </button>
+                    <button>
+                      <img src={chatbox} alt={chatbox} />
+                    </button>
+                    <button>
+                      <img src={share} alt={share} />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </article>
+        ))}
       </div>
     </div>
   );
 };
 
-export default Post;
+const mapStateToProps = (state) => {
+  return {
+    addSome: state.addSome,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  onClickAddPost: ({ id, upText }) => dispatch(addPost({ id, upText })),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post);
