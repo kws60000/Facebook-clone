@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "../components/Post";
 import Myheader from "../components/Myheader";
+import { connect } from "react-redux";
 import "./Privatepage.css";
 
 import produce from "../assets/produce.png";
@@ -14,7 +15,7 @@ import pop5 from "../assets/pop5.PNG";
 import pop6 from "../assets/pop6.PNG";
 import pop7 from "../assets/pop7.PNG";
 
-function Privatepage() {
+function Privatepage({ addSome }) {
   return (
     <div className="App">
       <body>
@@ -67,6 +68,9 @@ function Privatepage() {
                     <div className="produce-headerline">사진</div>
                   </div>
                   <p className="pictures3">
+                    {addSome.map((post) => (
+                      <img key={post.id} src={post.upPicture} alt={post}></img>
+                    ))}
                     <img src={pop5} alt={pop5}></img>
                     <img src={pop6} alt={pop6}></img>
                     <img src={pop7} alt={pop7}></img>
@@ -82,5 +86,9 @@ function Privatepage() {
     </div>
   );
 }
-
-export default Privatepage;
+const mapStateToProps = (state) => {
+  return {
+    addSome: state.addSome,
+  };
+};
+export default connect(mapStateToProps)(Privatepage);

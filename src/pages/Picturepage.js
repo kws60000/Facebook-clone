@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import picturebook from "../assets/picturebook.png";
 import pop4 from "../assets/pop4.PNG";
@@ -9,7 +10,7 @@ import "./Picturepage.css";
 
 import Myheader from "../components/Myheader";
 
-function Picturepage() {
+function Picturepage({ addSome }) {
   return (
     <div className="App">
       <body>
@@ -28,6 +29,10 @@ function Picturepage() {
                     <div className="produce-headerline">사진</div>
                   </div>
                   <p className="pictures3">
+                    {addSome.map((post) => (
+                      <img key={post.id} src={post.upPicture} alt={post}></img>
+                    ))}
+
                     <img src={pop4} alt={pop4}></img>
                     <img src={pop5} alt={pop5}></img>
                     <img src={pop6} alt={pop6}></img>
@@ -43,4 +48,9 @@ function Picturepage() {
   );
 }
 
-export default Picturepage;
+const mapStateToProps = (state) => {
+  return {
+    addSome: state.addSome,
+  };
+};
+export default connect(mapStateToProps)(Picturepage);
