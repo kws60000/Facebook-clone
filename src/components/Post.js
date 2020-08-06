@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addPost } from "../modules/addSome";
+import "./Post.css";
 
 import profile from "../assets/profile.png";
 import like from "../assets/like.PNG";
@@ -9,9 +10,23 @@ import share from "../assets/share.PNG";
 
 const Post = ({ onClickAddPost, addSome }) => {
   const [upText, setUpText] = useState("");
+  const [upPicture, setUpPicture] = useState("");
 
   const onChangeText = (e) => {
     setUpText(e.target.value);
+  };
+
+  const onChangePicture = (e) => {
+    let reader = new FileReader();
+    reader.onloadend = () => {
+      const base64 = reader.result;
+      if (base64) {
+        setUpPicture(base64.toString());
+      }
+    };
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
   };
 
   return (
@@ -23,6 +38,7 @@ const Post = ({ onClickAddPost, addSome }) => {
               <img src={profile} alt={profile} />
 
               <input
+                className="input-upText"
                 type="text"
                 value={upText}
                 onChange={onChangeText}
@@ -31,14 +47,18 @@ const Post = ({ onClickAddPost, addSome }) => {
             </div>
             <div id="status-photo">
               <span class="status-photo-span">
-                <input id="picture-upload" type="file" />
-                <label for="picture-upload" class="custom-file-upload">
+                <input
+                  id="picture-upload"
+                  type="file"
+                  onChange={onChangePicture}
+                />
+                <label for="picture-upload" className="custom-file-upload">
                   사진추가
                 </label>
               </span>
               <span class="status-photo-span">
                 <input id="video-upload" type="file" />
-                <label for="video-upload" class="custom-file-upload">
+                <label for="video-upload" className="custom-file-upload">
                   동영상추가
                 </label>
               </span>
@@ -52,6 +72,7 @@ const Post = ({ onClickAddPost, addSome }) => {
                     onClickAddPost({
                       id: Math.random(),
                       upText,
+                      upPicture,
                     });
                   }}
                   class="button-hover"
@@ -77,7 +98,13 @@ const Post = ({ onClickAddPost, addSome }) => {
                     1시간 전 <i class="fa fa-globe" aria-hidden="true"></i>{" "}
                   </span>
                 </div>
-                {post.upText}
+                <div className="upText">{post.upText}</div>
+                <img
+                  className="upPicture"
+                  src={post.upPicture}
+                  alt={upPicture}
+                ></img>
+
                 <div class="user-post-content"></div>
 
                 <div class="box-buttons">
@@ -109,7 +136,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onClickAddPost: ({ id, upText }) => dispatch(addPost({ id, upText })),
+  onClickAddPost: ({ id, upText, upPicture }) =>
+    dispatch(addPost({ id, upText, upPicture })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);

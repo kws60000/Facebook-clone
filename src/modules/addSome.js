@@ -1,9 +1,10 @@
 export const ADDPOST = "addSome/ADDPOST";
 
-export const addPost = ({ id, upText }) => ({
+export const addPost = ({ id, upText, upPicture }) => ({
   type: ADDPOST,
   id,
   upText,
+  upPicture,
 });
 
 export default function addSome(state = [], action) {
@@ -14,6 +15,7 @@ export default function addSome(state = [], action) {
         {
           id: action.id,
           upText: action.upText,
+          upPicture: action.upPicture,
         },
       ];
     default:
