@@ -8,7 +8,7 @@ import home from "../assets/home.png";
 import job from "../assets/job.png";
 import hometown from "../assets/hometown.png";
 import school from "../assets/school.png";
-import Myheader from "./Myheader";
+import Myheader from "../components/Myheader";
 
 const Profileedit = () => {
   return (

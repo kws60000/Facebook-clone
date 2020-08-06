@@ -1,5 +1,7 @@
 import React from "react";
-import Post from "./Post";
+import Post from "../components/Post";
+import Myheader from "../components/Myheader";
+import "./Privatepage.css";
 
 import produce from "../assets/produce.png";
 import home from "../assets/home.png";
@@ -11,9 +13,6 @@ import picturebook from "../assets/picturebook.png";
 import pop5 from "../assets/pop5.PNG";
 import pop6 from "../assets/pop6.PNG";
 import pop7 from "../assets/pop7.PNG";
-
-import "./Privatepage.css";
-import Myheader from "./Myheader";
 
 function Privatepage() {
   return (
@@ -57,19 +56,21 @@ function Privatepage() {
                   </div>
                 </ul>
               </div>
-              <div class="pictures">
-                <div className="produce-headers">
-                  <img
-                    className="produce-header2"
-                    src={picturebook}
-                    alt={picturebook}
-                  ></img>
-                  <div className="produce-headerline">사진</div>
-                </div>
-                <div className="pictures3">
-                  <img src={pop5} alt={pop5}></img>
-                  <img src={pop6} alt={pop6}></img>
-                  <img src={pop7} alt={pop7}></img>
+              <div className="Privatepage-picture">
+                <div class="pictures">
+                  <div className="produce-headers">
+                    <img
+                      className="produce-header2"
+                      src={picturebook}
+                      alt={picturebook}
+                    ></img>
+                    <div className="produce-headerline">사진</div>
+                  </div>
+                  <p className="pictures3">
+                    <img src={pop5} alt={pop5}></img>
+                    <img src={pop6} alt={pop6}></img>
+                    <img src={pop7} alt={pop7}></img>
+                  </p>
                 </div>
               </div>
             </div>

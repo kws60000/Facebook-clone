@@ -156,3 +156,11 @@ div#header-info-content {
     border-radius: 3px;
     transform: translateY(7px);
 }
+
+.Header-name {
+    color: white
+}
+
+.Header-home {
+    color: white
+}

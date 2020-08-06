@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import profile from "../assets/profile.png";
 
 import like from "../assets/like.PNG";
@@ -6,6 +6,12 @@ import chatbox from "../assets/chatbox.PNG";
 import share from "../assets/share.PNG";
 
 const Post = () => {
+  const [upText, setUpText] = useState("");
+
+  const onChangeText = (e) => {
+    setUpText(e.tartet.value);
+  };
+
   return (
     <div>
       <div class="right">
@@ -14,7 +20,12 @@ const Post = () => {
             <div id="status-content">
               <img src={profile} alt={profile} />
 
-              <input type="text" placeholder="무슨 생각을 하고 계신가요?" />
+              <input
+                type="text"
+                value={upText}
+                onChange={onChangeText}
+                placeholder="무슨 생각을 하고 계신가요?"
+              />
             </div>
             <div id="status-photo">
               <span class="status-photo-span">

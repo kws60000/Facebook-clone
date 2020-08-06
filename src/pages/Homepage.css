@@ -67,7 +67,7 @@ section#main-body-middle {
 
 #main-body-right {
     float: left;
-    margin-left: 10px;
+    margin-left: 110px;
     width: 310px;
     font-family: Malgun Gothic;
     font-size: 14px;
@@ -94,6 +94,7 @@ section#main-body:after {
 /* Format for left main body */
 
 .user-info-list {
+    margin-left: 140px;
     width: 100%;
     list-style: none;
 }
