@@ -71,6 +71,7 @@ function Privatepage({ addSome }) {
                     {addSome.map((post) => (
                       <img key={post.id} src={post.upPicture} alt={post}></img>
                     ))}
+
                     <img src={pop5} alt={pop5}></img>
                     <img src={pop6} alt={pop6}></img>
                     <img src={pop7} alt={pop7}></img>

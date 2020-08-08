@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addWho } from "../modules/addSome";
 import "./Profileedit.css";
 
 import profile from "../assets/profile.png";
-
 import produce from "../assets/produce.png";
 import home from "../assets/home.png";
 import job from "../assets/job.png";
@@ -10,7 +11,11 @@ import hometown from "../assets/hometown.png";
 import school from "../assets/school.png";
 import Myheader from "../components/Myheader";
 
-const Profileedit = () => {
+const Profileedit = ({ onClickWho }) => {
+  const [name, setName] = useState("");
+  const onChangeName = (e) => {
+    setName(e.target.value);
+  };
   return (
     <div>
       <body>
@@ -27,7 +32,11 @@ const Profileedit = () => {
               <div className="introduce-something">
                 <img className="introduce-me" src={home} alt={home} />
                 <div className="introduce-blue">이름 </div>{" "}
-                <input className="write-name" />
+                <input
+                  className="write-name"
+                  value={name}
+                  onChange={onChangeName}
+                />
               </div>
               <div className="introduce-something">
                 <img className="introduce-me" src={home} alt={home} />
@@ -38,7 +47,18 @@ const Profileedit = () => {
                 <img className="introduce-me" src={job} alt={job} />
                 <div className="introduce-blue">근무지 </div>{" "}
                 <input className="write-job" />
-                <button className="introduce-save">저장하기</button>
+                <button
+                  type="button"
+                  className="introduce-save"
+                  onClick={() => {
+                    onClickWho({
+                      id: Math.random(),
+                      name,
+                    });
+                  }}
+                >
+                  저장하기
+                </button>
               </div>
               <div className="introduce-something">
                 <img className="introduce-me" src={school} alt={school} />
@@ -58,4 +78,14 @@ const Profileedit = () => {
   );
 };
 
-export default Profileedit;
+const mapStateToProps = (state) => {
+  return {
+    addWho: state.addWho,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  onClickWho: ({ id, name }) => dispatch(addWho({ id, name })),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profileedit);

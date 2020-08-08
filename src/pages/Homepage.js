@@ -14,7 +14,7 @@ const Homepage = () => {
               <aside id="main-body-left">
                 <ul class="user-info-list">
                   <li>
-                    <img src={profile} />
+                    <img src={profile} alt={profile} />
                     김우석
                   </li>
                 </ul>
@@ -26,42 +26,42 @@ const Homepage = () => {
                 <div class="fb-box">
                   <ul class="language-wrapper">
                     <li>
-                      <a>한국어</a> ·
+                      <div>한국어 ·</div>
                     </li>
                     <li>
-                      <a>English(Us)</a> ·
+                      <div>English(Us) ·</div>
                     </li>
                     <li>
-                      <a>中文(중국)</a> ·
+                      <div>中文(중국) ·</div>
                     </li>
                     <li>
-                      <a>Español</a> ·
+                      <div>Español ·</div>
                     </li>
                     <li>
-                      <a>Português (Brasil)</a>
+                      <div>Português (Brasil)</div>
                     </li>
                   </ul>
                 </div>
                 <ul class="language-wrapper">
                   <li>
-                    <a>Privacy</a> ·
+                    <div>Privacy ·</div>
                   </li>
                   <li>
-                    <a>Terms</a> ·
+                    <div>Terms ·</div>
                   </li>
                   <li>
-                    <a>Advertising</a> ·
+                    <div>Advertising ·</div>
                   </li>
                   <li>
-                    <a>Ad Choices</a> ·
+                    <div>Ad Choices ·</div>
                   </li>
                   <li>
-                    <a>Cookies</a> ·
+                    <div>Cookies ·</div>
                   </li>
                   <li>
-                    <a href="#">
+                    <div href="#">
                       More <i class="fa fa-caret-down" aria-hidden="true"></i>
-                    </a>
+                    </div>
                   </li>
                 </ul>
                 <span class="footer">Facebook &copy; 2020</span>

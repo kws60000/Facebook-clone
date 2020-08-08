@@ -332,7 +332,7 @@ section#main-body:after {
     display: inline-block;
 }
 
-.language-wrapper li a {
+.language-wrapper li div {
     color: #90949C;
     font-size: 13px;
 }
