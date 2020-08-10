@@ -58,7 +58,7 @@ const Profileedit = ({ onClickWho }) => {
                   }}
                 >
                   저장하기
-                </button>
+                </button>{" "}
               </div>
               <div className="introduce-something">
                 <img className="introduce-me" src={school} alt={school} />

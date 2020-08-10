@@ -3,10 +3,11 @@ import profile from "../assets/profile.png";
 import search from "../assets/search.PNG";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ addSome }) => {
   return (
     <div>
       <body>
@@ -24,7 +25,11 @@ const Header = () => {
                 <span id="fb-info">
                   <img className="header-profile" src={profile} alt={profile} />
                   <Link to="Private">
-                    <span className="Header-name">김우석</span>
+                    {addSome.map((who) => (
+                      <span className="Header-name" key={who.id}>
+                        <div>{who.name}</div>
+                      </span>
+                    ))}
                   </Link>
                 </span>
                 <span class="fb-spliter"> | </span>
@@ -42,4 +47,12 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    addSome: state.addSome,
+  };
+};
+// Store에 저장된 개인정보의 현재 상태를 Props로 가져온다.
+
+export default connect(mapStateToProps)(Header);
+// Header 컴포넌트가 Store에 접근하게 만든다.
