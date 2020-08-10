@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 import "./Homepage.css";
 
-const Homepage = ({ addSome }) => {
+const Homepage = ({ addWho }) => {
   return (
     <div>
       <div className="App">
@@ -16,8 +16,8 @@ const Homepage = ({ addSome }) => {
                 <ul class="user-info-list">
                   <li>
                     <img src={profile} alt={profile} />
-                    {addSome.map((who) => (
-                      <div key={who.id}>{who.name}</div>
+                    {addWho.map((who) => (
+                      <div key={who.whoId}>{who.name}</div>
                     ))}
                   </li>
                 </ul>
@@ -80,7 +80,7 @@ const Homepage = ({ addSome }) => {
 
 const mapStateToProps = (state) => {
   return {
-    addSome: state.addSome,
+    addWho: state.addWho,
   };
 };
 // Store에 저장된 개인정보의 현재 상태를 Props로 가져온다.

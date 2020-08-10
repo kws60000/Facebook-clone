@@ -8,7 +8,7 @@ import like from "../assets/like.PNG";
 import chatbox from "../assets/chatbox.PNG";
 import share from "../assets/share.PNG";
 
-const Post = ({ onClickAddPost, addSome }) => {
+const Post = ({ onClickAddPost, addSome, addWho }) => {
   const [upText, setUpText] = useState("");
   const [upPicture, setUpPicture] = useState("");
 
@@ -92,7 +92,9 @@ const Post = ({ onClickAddPost, addSome }) => {
                     <img src={profile} alt={profile} />
                   </div>
                   <span>
-                    <div>김우석</div>
+                    {addWho.map((who) => (
+                      <div key={who.whoId}>{who.name}</div>
+                    ))}
                   </span>
                   <span>
                     1시간 전 <i class="fa fa-globe" aria-hidden="true"></i>{" "}
@@ -132,6 +134,8 @@ const Post = ({ onClickAddPost, addSome }) => {
 const mapStateToProps = (state) => {
   return {
     addSome: state.addSome,
+    addWho: state.addWho,
+    // Store에 저장된 개인정보의 현재 상태를 Props로 가져옴
   };
 };
 
