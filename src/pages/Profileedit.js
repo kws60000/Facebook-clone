@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addWho } from "../modules/addSome";
+import { addName } from "../modules/addWho";
 import "./Profileedit.css";
 
 import profile from "../assets/profile.png";
@@ -52,7 +52,7 @@ const Profileedit = ({ onClickWho }) => {
                   className="introduce-save"
                   onClick={() => {
                     onClickWho({
-                      id: Math.random(),
+                      whoId: Math.random(),
                       name,
                     });
                   }}
@@ -85,7 +85,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onClickWho: ({ id, name }) => dispatch(addWho({ id, name })),
+  onClickWho: ({ whoId, name }) => dispatch(addName({ whoId, name })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profileedit);

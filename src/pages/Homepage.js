@@ -1,10 +1,11 @@
 import React from "react";
 import profile from "../assets/profile.png";
 import Post from "../components/Post";
+import { connect } from "react-redux";
 
 import "./Homepage.css";
 
-const Homepage = () => {
+const Homepage = ({ addSome }) => {
   return (
     <div>
       <div className="App">
@@ -15,7 +16,9 @@ const Homepage = () => {
                 <ul class="user-info-list">
                   <li>
                     <img src={profile} alt={profile} />
-                    김우석
+                    {addSome.map((who) => (
+                      <div key={who.id}>{who.name}</div>
+                    ))}
                   </li>
                 </ul>
               </aside>
@@ -75,4 +78,12 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+const mapStateToProps = (state) => {
+  return {
+    addSome: state.addSome,
+  };
+};
+// Store에 저장된 개인정보의 현재 상태를 Props로 가져온다.
+
+export default connect(mapStateToProps)(Homepage);
+// Homepage 컴포넌트가 Store에 접근하게 만든다.

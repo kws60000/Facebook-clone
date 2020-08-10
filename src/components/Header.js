@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 
 import "./Header.css";
 
-const Header = ({ addSome }) => {
+const Header = ({ addWho }) => {
   return (
     <div>
       <body>
@@ -23,10 +23,15 @@ const Header = ({ addSome }) => {
             <div id="header-info">
               <div id="header-info-content">
                 <span id="fb-info">
-                  <img className="header-profile" src={profile} alt={profile} />
                   <Link to="Private">
-                    {addSome.map((who) => (
-                      <span className="Header-name" key={who.id}>
+                    <img
+                      className="header-profile"
+                      src={profile}
+                      alt={profile}
+                    />
+
+                    {addWho.map((who) => (
+                      <span className="Header-name" key={who.whoId}>
                         <div>{who.name}</div>
                       </span>
                     ))}
@@ -49,7 +54,7 @@ const Header = ({ addSome }) => {
 
 const mapStateToProps = (state) => {
   return {
-    addSome: state.addSome,
+    addWho: state.addWho,
   };
 };
 // Store에 저장된 개인정보의 현재 상태를 Props로 가져온다.
