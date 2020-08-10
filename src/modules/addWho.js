@@ -1,10 +1,16 @@
 export const ADDNAME = "addName/ADDWHO";
 
-export const addName = ({ whoId, name }) => ({
+export const addName = ({ whoId, name, home, hometown, job, school }) => ({
   type: ADDNAME,
   whoId,
   name,
+  home,
+  hometown,
+  job,
+
+  school,
 });
+// ADDNAME 액션은 id, 이름, 거주지, 직업, 출신지, 학교값을 변수로 사용한다.
 
 export default function addWho(state = [], action) {
   switch (action.type) {
@@ -14,6 +20,10 @@ export default function addWho(state = [], action) {
         {
           whoID: action.whoID,
           name: action.name,
+          home: action.home,
+          hometown: action.hometown,
+          job: action.job,
+          school: action.school,
         },
       ];
       // 1. 반환하고자 하는 데이터를 변수에 저장

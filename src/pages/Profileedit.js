@@ -13,8 +13,24 @@ import Myheader from "../components/Myheader";
 
 const Profileedit = ({ onClickWho }) => {
   const [name, setName] = useState("");
+  const [home, setHome] = useState("");
+  const [hometown, setHometown] = useState("");
+  const [job, setJob] = useState("");
+  const [school, setSchool] = useState("");
   const onChangeName = (e) => {
     setName(e.target.value);
+  };
+  const onChangeHome = (e) => {
+    setHome(e.target.value);
+  };
+  const onChangeHometown = (e) => {
+    setHometown(e.target.value);
+  };
+  const onChangeJob = (e) => {
+    setJob(e.target.value);
+  };
+  const onChangeSchool = (e) => {
+    setSchool(e.target.value);
   };
   return (
     <div>
@@ -41,12 +57,20 @@ const Profileedit = ({ onClickWho }) => {
               <div className="introduce-something">
                 <img className="introduce-me" src={home} alt={home} />
                 <div className="introduce-blue">거주지 </div>{" "}
-                <input className="write-home" />
+                <input
+                  className="write-home"
+                  value={home}
+                  onChange={onChangeHome}
+                />
               </div>
               <div className="introduce-something">
                 <img className="introduce-me" src={job} alt={job} />
                 <div className="introduce-blue">근무지 </div>{" "}
-                <input className="write-job" />
+                <input
+                  className="write-job"
+                  value={job}
+                  onChange={onChangeJob}
+                />
                 <button
                   type="button"
                   className="introduce-save"
@@ -63,12 +87,20 @@ const Profileedit = ({ onClickWho }) => {
               <div className="introduce-something">
                 <img className="introduce-me" src={school} alt={school} />
                 <div className="introduce-blue">학교 </div>{" "}
-                <input className="write-school" />
+                <input
+                  className="write-school"
+                  value={school}
+                  onChange={onChangeSchool}
+                />
               </div>
               <div className="introduce-something">
                 <img className="introduce-me" src={hometown} alt={hometown} />
                 <div className="introduce-blue">출신지 </div>
-                <input className="write-hometown" />
+                <input
+                  className="write-hometown"
+                  value={hometown}
+                  onChange={onChangeHometown}
+                />
               </div>
             </ul>
           </div>
