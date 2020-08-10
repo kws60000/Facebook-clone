@@ -5,10 +5,10 @@ import "./Profileedit.css";
 
 import profile from "../assets/profile.png";
 import produce from "../assets/produce.png";
-import home from "../assets/home.png";
-import job from "../assets/job.png";
-import hometown from "../assets/hometown.png";
-import school from "../assets/school.png";
+import homeImg from "../assets/home.png";
+import jobImg from "../assets/job.png";
+import hometownImg from "../assets/hometown.png";
+import schoolImg from "../assets/school.png";
 import Myheader from "../components/Myheader";
 
 const Profileedit = ({ onClickWho }) => {
@@ -46,7 +46,7 @@ const Profileedit = ({ onClickWho }) => {
             <ul className="introduce-somethings">
               <img className="introduce-profile" src={profile} alt={profile} />
               <div className="introduce-something">
-                <img className="introduce-me" src={home} alt={home} />
+                <img className="introduce-me" src={homeImg} alt={homeImg} />
                 <div className="introduce-blue">이름 </div>{" "}
                 <input
                   className="write-name"
@@ -55,7 +55,7 @@ const Profileedit = ({ onClickWho }) => {
                 />
               </div>
               <div className="introduce-something">
-                <img className="introduce-me" src={home} alt={home} />
+                <img className="introduce-me" src={homeImg} alt={homeImg} />
                 <div className="introduce-blue">거주지 </div>{" "}
                 <input
                   className="write-home"
@@ -64,7 +64,7 @@ const Profileedit = ({ onClickWho }) => {
                 />
               </div>
               <div className="introduce-something">
-                <img className="introduce-me" src={job} alt={job} />
+                <img className="introduce-me" src={jobImg} alt={jobImg} />
                 <div className="introduce-blue">근무지 </div>{" "}
                 <input
                   className="write-job"
@@ -78,6 +78,10 @@ const Profileedit = ({ onClickWho }) => {
                     onClickWho({
                       whoId: Math.random(),
                       name,
+                      home,
+                      hometown,
+                      job,
+                      school,
                     });
                   }}
                 >
@@ -85,7 +89,7 @@ const Profileedit = ({ onClickWho }) => {
                 </button>{" "}
               </div>
               <div className="introduce-something">
-                <img className="introduce-me" src={school} alt={school} />
+                <img className="introduce-me" src={schoolImg} alt={schoolImg} />
                 <div className="introduce-blue">학교 </div>{" "}
                 <input
                   className="write-school"
@@ -94,7 +98,11 @@ const Profileedit = ({ onClickWho }) => {
                 />
               </div>
               <div className="introduce-something">
-                <img className="introduce-me" src={hometown} alt={hometown} />
+                <img
+                  className="introduce-me"
+                  src={hometownImg}
+                  alt={hometownImg}
+                />
                 <div className="introduce-blue">출신지 </div>
                 <input
                   className="write-hometown"
@@ -117,7 +125,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onClickWho: ({ whoId, name }) => dispatch(addName({ whoId, name })),
+  onClickWho: ({ whoId, name, home, hometown, job, school }) =>
+    dispatch(addName({ whoId, name, home, hometown, job, school })),
 });
+// '작성하기' 버튼의 onClick 이벤트와 addName 함수를 연결한다.
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profileedit);
