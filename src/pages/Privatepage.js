@@ -15,7 +15,7 @@ import pop5 from "../assets/pop5.PNG";
 import pop6 from "../assets/pop6.PNG";
 import pop7 from "../assets/pop7.PNG";
 
-function Privatepage({ addSome }) {
+function Privatepage({ addSome, addWho }) {
   return (
     <div className="App">
       <body>
@@ -33,29 +33,34 @@ function Privatepage({ addSome }) {
                   ></img>
                   <div className="produce-headerline">소개</div>
                 </div>
-                <ul className="introduce-somethings">
-                  <div className="introduce-something">
-                    <img className="introduce-me" src={home} alt={home} />
-                    <div className="introduce-blue">제주 </div> &nbsp;거주
-                  </div>
-                  <div className="introduce-something">
-                    <img className="introduce-me" src={job} alt={job} />
-                    <div className="introduce-blue">5년 뒤 네이버 </div>{" "}
-                    &nbsp;근무
-                  </div>
-                  <div className="introduce-something">
-                    <img className="introduce-me" src={school} alt={school} />
-                    <div className="introduce-blue">제주대 </div> &nbsp;졸업
-                  </div>
-                  <div className="introduce-something">
-                    <img
-                      className="introduce-me"
-                      src={hometown}
-                      alt={hometown}
-                    />
-                    <div className="introduce-blue">제주 </div> &nbsp;출신
-                  </div>
-                </ul>
+                {addWho.map((who) => (
+                  <ul className="introduce-somethings" key={who.whoId}>
+                    <div className="introduce-something">
+                      <img className="introduce-me" src={home} alt={home} />
+                      <div className="introduce-blue">{who.home} </div>{" "}
+                      &nbsp;거주
+                    </div>
+                    <div className="introduce-something">
+                      <img className="introduce-me" src={job} alt={job} />
+                      <div className="introduce-blue">{who.job} </div>{" "}
+                      &nbsp;근무
+                    </div>
+                    <div className="introduce-something">
+                      <img className="introduce-me" src={school} alt={school} />
+                      <div className="introduce-blue">{who.school} </div>{" "}
+                      &nbsp;졸업
+                    </div>
+                    <div className="introduce-something">
+                      <img
+                        className="introduce-me"
+                        src={hometown}
+                        alt={hometown}
+                      />
+                      <div className="introduce-blue">{who.hometown} </div>{" "}
+                      &nbsp;출신
+                    </div>
+                  </ul>
+                ))}
               </div>
               <div className="Privatepage-picture">
                 <div class="pictures">
@@ -90,6 +95,7 @@ function Privatepage({ addSome }) {
 const mapStateToProps = (state) => {
   return {
     addSome: state.addSome,
+    addWho: state.addWho,
   };
 };
 export default connect(mapStateToProps)(Privatepage);
