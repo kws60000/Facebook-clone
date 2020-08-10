@@ -1,8 +1,10 @@
 export const ADDPOST = "addSome/ADDPOST";
 
-export const addPost = ({ id, upText, upPicture }) => ({
+let id = 1;
+//id의 초기 값을 1로 설정합니다.
+
+export const addPost = ({ upText, upPicture }) => ({
   type: ADDPOST,
-  id,
   upText,
   upPicture,
 });
@@ -13,7 +15,9 @@ export default function addSome(state = [], action) {
       return [
         ...state,
         {
-          id: action.id,
+          id: id++,
+          // 액션이 발생할 때 마다 id의 값이 1씩 증가합니다.
+
           upText: action.upText,
           upPicture: action.upPicture,
         },

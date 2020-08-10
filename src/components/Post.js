@@ -70,7 +70,6 @@ const Post = ({ onClickAddPost, addSome, addWho }) => {
                   type="button"
                   onClick={() => {
                     onClickAddPost({
-                      id: Math.random(),
                       upText,
                       upPicture,
                     });

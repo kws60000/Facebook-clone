@@ -1,7 +1,7 @@
 export const ADDNAME = "addName/ADDWHO";
 
+let whoId = 1;
 export const addName = ({
-  whoId,
   name,
   home,
   hometown,
@@ -11,7 +11,7 @@ export const addName = ({
   background,
 }) => ({
   type: ADDNAME,
-  whoId,
+  whoId: whoId++,
   name,
   home,
   hometown,
