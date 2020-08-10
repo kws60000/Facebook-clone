@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { addName } from "../modules/addWho";
 import "./Myheader.css";
 
 import profileImg from "../assets/profile.png";
@@ -66,13 +68,17 @@ const Myheader = () => {
             <img className="background-camera" src={camera} alt={camera} />
           </label>
           <button className="background-save">배경 저장</button>
-          <input id="profile-picture-upload" type="file" />
+          <input
+            id="profile-picture-upload"
+            type="file"
+            onChange={onChangeBackground}
+          />
           <label for="profile-picture-upload">
             <img className="profile-camera" src={camera} alt={camera} />
           </label>
           <button className="profile-save">프로필 저장</button>
-          <img src={profileImg} class="photo" alt={profileImg}></img>
-          <img src={backgroundImg} class="top" alt={backgroundImg}></img>
+          <img src={profileImg} className="photo" alt={profileImg}></img>
+          <img src={backgroundImg} className="top" alt={backgroundImg}></img>
           <Link to="ProfileEdit">
             <p class="button1">프로필 수정</p>
           </Link>
@@ -104,4 +110,18 @@ const Myheader = () => {
   );
 };
 
-export default Myheader;
+const mapStateToProps = (state) => {
+  return {
+    addWho: state.addWho,
+  };
+};
+// Store에 저장된 개인정보의 현재 상태를 Props로 가져온다.
+
+const mapDispatchToProps = (dispatch) => ({
+  onClickAddPicture: ({ id, profile, background }) =>
+    dispatch(addName({ id, profile, background })),
+});
+// 프로필, 배경사진을 저장하는 버튼의 onClick 이벤트와 addName 액션을 연결한다.
+
+export default connect(mapStateToProps, mapDispatchToProps)(Myheader);
+// MyHeader 컴포넌트가 Store에 접근하게 만든다.
