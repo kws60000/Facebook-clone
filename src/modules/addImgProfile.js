@@ -1,20 +1,17 @@
 import profileImg from "../assets/profile.png";
-
 export const ADDPROFILE = "addImgProfile/ADDPROFILE";
 
 let id = 1;
 
 // 프로필 사진을 변경하는 액션 생성 함수
-export const addProfile = (id, profile) => ({
+export const addProfile = ({ profile }) => ({
   type: ADDPROFILE,
-  id,
   profile,
 });
 
 // state의 초깃값 설정
 const initialState = [
   {
-    id,
     profile: profileImg,
   },
 ];

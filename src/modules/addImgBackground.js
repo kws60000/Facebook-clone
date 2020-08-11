@@ -5,16 +5,14 @@ export const ADDBACKGROUND = "addImgBackground/ADDBACKGROUND";
 let id = 1;
 
 // 배경사진을 변경하는 액션 생성 함수
-export const addBackground = (id, background) => ({
+export const addBackground = ({ background }) => ({
   type: ADDBACKGROUND,
-  id,
   background,
 });
 
 // state의 초깃값 설정
 const initialState = [
   {
-    id,
     background: backgroundImg,
   },
 ];

@@ -2,24 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addProfile } from "../modules/addImgProfile";
+import { addBackground } from "../modules/addImgBackground";
 import "./Myheader.css";
 
-import profileImg from "../assets/profile.png";
-import backgroundImg from "../assets/background.jpg";
 import camera from "../assets/camera.png";
 
-//입력값 변경 순서
-//usestate로 입력값 전후 설정
-// input의 value 값에 따른 scr 경로가 저장되는 함수 설정
-// onChange와 함수 연결
-//connect, 리듀서 등록
-// connect 변수 등록
-
-//출력값 변경 순서
-// 리듀서를 변수로 설정하고 MAP함수 사용
-// 버튼에 변경값 적용
 const Myheader = ({
   addImgProfile,
+  addImgBackground,
   onClickAddProfile,
   onClickAddBackground,
 }) => {
@@ -68,9 +58,11 @@ const Myheader = ({
             type="file"
             onChange={onChangeBackground}
           />
+
           <label for="background-picture-upload">
             <img className="background-camera" src={camera} alt={camera} />
           </label>
+
           <button
             type="button"
             className="background-save"
@@ -82,15 +74,17 @@ const Myheader = ({
           >
             배경 저장
           </button>
-          <img src={background} className="top" alt={backgroundImg}></img>
+
           <input
             id="profile-picture-upload"
             type="file"
             onChange={onChangeProfile}
           />
+
           <label for="profile-picture-upload">
             <img className="profile-camera" src={camera} alt={camera} />
           </label>
+
           <button
             type="button"
             className="profile-save"
@@ -102,8 +96,23 @@ const Myheader = ({
           >
             프로필 저장
           </button>
+
+          {addImgBackground.map((add) => (
+            <img
+              key={add.id}
+              src={add.background}
+              className="top"
+              alt={"에러"}
+            ></img>
+          ))}
+
           {addImgProfile.map((add) => (
-            <img src={add.profile} className="photo" alt={profileImg}></img>
+            <img
+              key={add.id}
+              src={add.profile}
+              className="photo"
+              alt={"에러"}
+            ></img>
           ))}
 
           <Link to="ProfileEdit">
@@ -140,12 +149,15 @@ const Myheader = ({
 const mapStateToProps = (state) => {
   return {
     addImgProfile: state.addImgProfile,
+    addImgBackground: state.addImgBackground,
   };
 };
 // Store에 저장된 개인정보의 현재 상태를 Props로 가져온다.
 
 const mapDispatchToProps = (dispatch) => ({
   onClickAddProfile: ({ profile }) => dispatch(addProfile({ profile })),
+  onClickAddBackground: ({ background }) =>
+    dispatch(addBackground({ background })),
 });
 // 프로필, 배경사진을 저장하는 버튼의 onClick 이벤트와 addName 액션을 연결한다.
 
