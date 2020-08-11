@@ -1,0 +1,16 @@
+.Picturepage-Picture>div>p>img {
+    width: 175px;
+    height: 175px;
+    margin: 18.4px;
+}
+
+.Picturepage-Picture>div {
+    width: 850px;
+    height: 460px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 100px;
+    top: 70px;
+    position: sticky;
+}

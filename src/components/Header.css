@@ -1,0 +1,166 @@
+*,
+
+html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header,
+nav,
+footer,
+section {
+    display: block;
+}
+
+body {
+    background-color: #E9EBEE;
+    font-family: serif, sans-serif;
+    min-width: 1340px;
+}
+
+
+#main-header-wrapper {
+    background-color: #3B5998;
+    color: white;
+    height: 45px;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    min-width: 1360px;
+}
+
+div#main-header {
+    width: 80%;
+    margin: 0 auto;
+    height: 30px;
+}
+
+form#search-form {
+    display: inline-block;
+    border-radius: 3px;
+    width: 58%;
+    transform: translateY(7px);
+}
+
+form#search-form:after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+
+form#search-form>input,
+form#search-form>button {
+    outline: 0;
+    height: 26px;
+    border: 1px solid transparent;
+    transform: translateY(2px);
+}
+
+form#search-form>input {
+    float: left;
+    padding-left: 10px;
+    width: 65%;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+form#search-form>button {
+    width: 50px;
+    background-color: #F6F7F9;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+}
+
+form#search-form>button>i {
+    font-size: 18px;
+    line-height: 26px;
+    color: #6C727F;
+}
+
+div#header-info {
+    width: 310px;
+    display: inline-block;
+    height: 26px;
+    transform: translateY(10px);
+}
+
+div#header-info:after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+
+div#header-info-content {
+    font-family: Malgun Gothic;
+    font-size: 14px;
+    width: 100%;
+}
+
+#fb-info,
+#fb-home,
+.fb-spliter,
+#fb-noti,
+#fb-setting {
+    display: inline-block;
+    transform: translateY(-7px);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#fb-info {
+    width: 90px;
+    height: 26px;
+}
+
+#fb-info span {
+    height: 26px;
+    line-height: 26px;
+    display: inline-block;
+}
+
+.fb-spliter {
+    outline: none;
+    color: #355089;
+    font-weight: bold;
+}
+
+#fb-home {
+    width: 40px;
+    margin-left: 6px;
+}
+
+#main-header-wrapper:after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+
+.header-logo {
+    padding-top: 10px;
+    padding-right: 10px;
+    margin-left: 200px;
+    float: left;
+    width: 2.6%;
+}
+
+.header-search {
+    width: 50%;
+}
+
+.header-profile {
+    padding-right: 10px;
+    width: 36px;
+    height: 26px;
+    border-radius: 3px;
+    transform: translateY(7px);
+}
+
+.Header-name {
+    color: white
+}
+
+.Header-home {
+    color: white
+}
