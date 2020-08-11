@@ -3,12 +3,11 @@ import { connect } from "react-redux";
 import { addPost } from "../modules/addSome";
 import "./Post.css";
 
-import profile from "../assets/profile.png";
 import like from "../assets/like.PNG";
 import chatbox from "../assets/chatbox.PNG";
 import share from "../assets/share.PNG";
 
-const Post = ({ onClickAddPost, addSome, addWho }) => {
+const Post = ({ onClickAddPost, addSome, addWho, addImgProfile }) => {
   const [upText, setUpText] = useState("");
   const [upPicture, setUpPicture] = useState("");
 
@@ -35,7 +34,9 @@ const Post = ({ onClickAddPost, addSome, addWho }) => {
         <div class="makepost">
           <form id="post-status" class="fb-box">
             <div id="status-content">
-              <img src={profile} alt={profile} />
+              {addImgProfile.map((add) => (
+                <img key={add.id} src={add.profile} alt={add.profile} />
+              ))}
 
               <input
                 className="input-upText"
@@ -88,7 +89,9 @@ const Post = ({ onClickAddPost, addSome, addWho }) => {
               <div class="user-post fb-box">
                 <div class="user-post-title">
                   <div className="post-title-profile">
-                    <img src={profile} alt={profile} />
+                    {addImgProfile.map((add) => (
+                      <img key={add.id} src={add.profile} alt={add.profile} />
+                    ))}
                   </div>
                   <span>
                     {addWho.map((who) => (
@@ -134,6 +137,7 @@ const mapStateToProps = (state) => {
   return {
     addSome: state.addSome,
     addWho: state.addWho,
+    addImgProfile: state.addImgProfile,
     // Store에 저장된 개인정보의 현재 상태를 Props로 가져옴
   };
 };
