@@ -1,7 +1,7 @@
 import React from "react";
-import profile from "../assets/profile.png";
-import search from "../assets/search.PNG";
-import logo from "../assets/logo.png";
+import profileImg from "../assets/profile.png";
+import searchImg from "../assets/search.PNG";
+import logoImg from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -13,11 +13,15 @@ const Header = ({ addWho }) => {
       <body>
         <header id="main-header-wrapper">
           <div id="main-header">
-            <img className="header-logo" src={logo} alt={logo} />
+            <img className="header-logo" src={logoImg} alt={logoImg} />
             <form id="search-form">
               <input type="text" placeholder="검색" />
               <button type="submit">
-                <img className="header-search" src={search} alt={search} />
+                <img
+                  className="header-search"
+                  src={searchImg}
+                  alt={searchImg}
+                />
               </button>
             </form>
             <div id="header-info">
@@ -26,8 +30,8 @@ const Header = ({ addWho }) => {
                   <Link to="Private">
                     <img
                       className="header-profile"
-                      src={profile}
-                      alt={profile}
+                      src={profileImg}
+                      alt={profileImg}
                     />
 
                     {addWho.map((who) => (

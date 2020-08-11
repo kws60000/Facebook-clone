@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addName } from "../modules/addWho";
+import { addProfile } from "../modules/addWho";
 import "./Myheader.css";
 
 import profileImg from "../assets/profile.png";
@@ -59,11 +59,11 @@ const Myheader = ({ addWho, onClickAddProfile, onClickAddBackground }) => {
     <div>
       <div class="container">
         {addWho.map((who) => (
-          <div className="wrap" key={who.whoId}>
+          <div className="wrap">
             <input
               id="background-picture-upload"
               type="file"
-              onChange={onChangeProfile}
+              onChange={onChangeBackground}
             />
             <label for="background-picture-upload">
               <img className="background-camera" src={camera} alt={camera} />
@@ -72,9 +72,8 @@ const Myheader = ({ addWho, onClickAddProfile, onClickAddBackground }) => {
               type="button"
               className="background-save"
               onClick={() => {
-                onClickAddProfile({
-                  whoId: Math.random(),
-                  profile,
+                onClickAddBackground({
+                  background,
                 });
               }}
             >
@@ -83,7 +82,7 @@ const Myheader = ({ addWho, onClickAddProfile, onClickAddBackground }) => {
             <input
               id="profile-picture-upload"
               type="file"
-              onChange={onChangeBackground}
+              onChange={onChangeProfile}
             />
             <label for="profile-picture-upload">
               <img className="profile-camera" src={camera} alt={camera} />
@@ -92,9 +91,8 @@ const Myheader = ({ addWho, onClickAddProfile, onClickAddBackground }) => {
               type="button"
               className="profile-save"
               onClick={() => {
-                onClickAddBackground({
-                  whoId: Math.random(),
-                  background,
+                onClickAddProfile({
+                  profile,
                 });
               }}
             >
@@ -143,9 +141,7 @@ const mapStateToProps = (state) => {
 // Store에 저장된 개인정보의 현재 상태를 Props로 가져온다.
 
 const mapDispatchToProps = (dispatch) => ({
-  onClickAddProfile: ({ id, profile }) => dispatch(addName({ id, profile })),
-  onClickAddBackground: ({ id, background }) =>
-    dispatch(addName({ id, background })),
+  onClickAddProfile: ({ profile }) => dispatch(addProfile({ profile })),
 });
 // 프로필, 배경사진을 저장하는 버튼의 onClick 이벤트와 addName 액션을 연결한다.
 

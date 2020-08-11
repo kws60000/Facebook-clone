@@ -16,6 +16,7 @@ export const addName = ({ name, home, hometown, job, school }) => ({
 
 // 프로필 사진을 변경하는 액션 생성 함수
 export const addProfile = (profile) => ({
+  type: ADDPROFILE,
   profile,
 });
 

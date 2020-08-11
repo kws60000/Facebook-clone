@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addName } from "../modules/addWho";
 import "./Profileedit.css";
 
-import profile from "../assets/profile.png";
+import profileImg from "../assets/profile.png";
 import produce from "../assets/produce.png";
 import homeImg from "../assets/home.png";
 import jobImg from "../assets/job.png";
@@ -44,7 +44,11 @@ const Profileedit = ({ onClickWho }) => {
               <div className="produce-headerline">프로필 수정</div>
             </div>
             <ul className="introduce-somethings">
-              <img className="introduce-profile" src={profile} alt={profile} />
+              <img
+                className="introduce-profile"
+                src={profileImg}
+                alt={profileImg}
+              />
               <div className="introduce-something">
                 <img className="introduce-me" src={homeImg} alt={homeImg} />
                 <div className="introduce-blue">이름 </div>{" "}
@@ -76,7 +80,6 @@ const Profileedit = ({ onClickWho }) => {
                   className="introduce-save"
                   onClick={() => {
                     onClickWho({
-                      whoId: Math.random(),
                       name,
                       home,
                       hometown,
