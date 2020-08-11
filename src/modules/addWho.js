@@ -1,23 +1,16 @@
-import profileImg from "../assets/profile.png";
 import backgroundImg from "../assets/background.jpg";
 
 export const ADDNAME = "addName/ADDWHO";
-export const ADDPROFILE = "addProfile/ADDPROFILE";
 
 let whoId = 1;
-export const addName = ({ name, home, hometown, job, school }) => ({
+export const addName = ({ name, home, hometown, job, school, background }) => ({
   type: ADDNAME,
   name,
   home,
   hometown,
   job,
   school,
-});
-
-// 프로필 사진을 변경하는 액션 생성 함수
-export const addProfile = (profile) => ({
-  type: ADDPROFILE,
-  profile,
+  background,
 });
 
 // state의 초깃값 설정
@@ -29,7 +22,6 @@ const initialState = [
     hometown: "부산",
     job: "교육생",
     school: "제주대",
-    profile: profileImg,
     background: backgroundImg,
   },
 ];
@@ -47,6 +39,7 @@ export default function addWho(state = initialState, action) {
           hometown: action.hometown,
           job: action.job,
           school: action.school,
+          background: backgroundImg,
         },
       ];
       // 1. 반환하고자 하는 데이터를 변수에 저장
@@ -58,15 +51,6 @@ export default function addWho(state = initialState, action) {
 
       return result;
     // 3. 갱신된 데이터를 반환
-
-    case ADDPROFILE:
-      const resultProfile = {
-        profile: action.profile,
-      };
-      if (resultProfile.length > 1) {
-        resultProfile.shift();
-      }
-      return resultProfile;
 
     default:
       return state;
