@@ -1,16 +1,13 @@
-import backgroundImg from "../assets/background.jpg";
-
 export const ADDNAME = "addName/ADDWHO";
 
 let whoId = 1;
-export const addName = ({ name, home, hometown, job, school, background }) => ({
+export const addName = ({ name, home, hometown, job, school }) => ({
   type: ADDNAME,
   name,
   home,
   hometown,
   job,
   school,
-  background,
 });
 
 // state의 초깃값 설정
@@ -22,7 +19,6 @@ const initialState = [
     hometown: "부산",
     job: "교육생",
     school: "제주대",
-    background: backgroundImg,
   },
 ];
 
@@ -39,7 +35,6 @@ export default function addWho(state = initialState, action) {
           hometown: action.hometown,
           job: action.job,
           school: action.school,
-          background: backgroundImg,
         },
       ];
       // 1. 반환하고자 하는 데이터를 변수에 저장
