@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addProfile } from "../modules/addWho";
+import { addProfile } from "../modules/addImgProfile";
 import "./Myheader.css";
 
 import profileImg from "../assets/profile.png";
@@ -18,7 +18,11 @@ import camera from "../assets/camera.png";
 //출력값 변경 순서
 // 리듀서를 변수로 설정하고 MAP함수 사용
 // 버튼에 변경값 적용
-const Myheader = ({ addWho, onClickAddProfile, onClickAddBackground }) => {
+const Myheader = ({
+  addImgProfile,
+  onClickAddProfile,
+  onClickAddBackground,
+}) => {
   const [profile, setProfile] = useState("");
   const [background, setBackground] = useState("");
 
@@ -58,76 +62,76 @@ const Myheader = ({ addWho, onClickAddProfile, onClickAddBackground }) => {
   return (
     <div>
       <div class="container">
-        {addWho.map((who) => (
-          <div className="wrap">
-            <input
-              id="background-picture-upload"
-              type="file"
-              onChange={onChangeBackground}
-            />
-            <label for="background-picture-upload">
-              <img className="background-camera" src={camera} alt={camera} />
-            </label>
-            <button
-              type="button"
-              className="background-save"
-              onClick={() => {
-                onClickAddBackground({
-                  background,
-                });
-              }}
-            >
-              배경 저장
-            </button>
-            <input
-              id="profile-picture-upload"
-              type="file"
-              onChange={onChangeProfile}
-            />
-            <label for="profile-picture-upload">
-              <img className="profile-camera" src={camera} alt={camera} />
-            </label>
-            <button
-              type="button"
-              className="profile-save"
-              onClick={() => {
-                onClickAddProfile({
-                  profile,
-                });
-              }}
-            >
-              프로필 저장
-            </button>
-            <img src={who.profile} className="photo" alt={profileImg}></img>
-            <img src={who.background} className="top" alt={backgroundImg}></img>
+        <div className="wrap">
+          <input
+            id="background-picture-upload"
+            type="file"
+            onChange={onChangeBackground}
+          />
+          <label for="background-picture-upload">
+            <img className="background-camera" src={camera} alt={camera} />
+          </label>
+          <button
+            type="button"
+            className="background-save"
+            onClick={() => {
+              onClickAddBackground({
+                background,
+              });
+            }}
+          >
+            배경 저장
+          </button>
+          <img src={background} className="top" alt={backgroundImg}></img>
+          <input
+            id="profile-picture-upload"
+            type="file"
+            onChange={onChangeProfile}
+          />
+          <label for="profile-picture-upload">
+            <img className="profile-camera" src={camera} alt={camera} />
+          </label>
+          <button
+            type="button"
+            className="profile-save"
+            onClick={() => {
+              onClickAddProfile({
+                profile,
+              });
+            }}
+          >
+            프로필 저장
+          </button>
+          {addImgProfile.map((add) => (
+            <img src={add.profile} className="photo" alt={profileImg}></img>
+          ))}
 
-            <Link to="ProfileEdit">
-              <p class="button1">프로필 수정</p>
-            </Link>
+          <Link to="ProfileEdit">
+            <p class="button1">프로필 수정</p>
+          </Link>
 
-            <div class="bottom">
-              <ul class="navigation">
-                <li>
-                  <div className="navigation-content">타임라인</div>
-                </li>
-                <li>
-                  <div className="navigation-content">정보</div>
-                </li>
-                <li>
-                  <div className="navigation-content">친구</div>
-                </li>
-                <li>
-                  <Link to="Picture">
-                    <div className="navigation-content">사진</div>
-                  </Link>
-                </li>
-                <li>
-                  <div className="navigation-content">더보기</div>
-                </li>
-              </ul>
-            </div>
+          <div class="bottom">
+            <ul class="navigation">
+              <li>
+                <div className="navigation-content">타임라인</div>
+              </li>
+              <li>
+                <div className="navigation-content">정보</div>
+              </li>
+              <li>
+                <div className="navigation-content">친구</div>
+              </li>
+              <li>
+                <Link to="Picture">
+                  <div className="navigation-content">사진</div>
+                </Link>
+              </li>
+              <li>
+                <div className="navigation-content">더보기</div>
+              </li>
+            </ul>
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
@@ -135,7 +139,7 @@ const Myheader = ({ addWho, onClickAddProfile, onClickAddBackground }) => {
 
 const mapStateToProps = (state) => {
   return {
-    addWho: state.addWho,
+    addImgProfile: state.addImgProfile,
   };
 };
 // Store에 저장된 개인정보의 현재 상태를 Props로 가져온다.
