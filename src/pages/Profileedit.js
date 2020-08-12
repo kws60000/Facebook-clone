@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addName } from "../modules/addWho";
+import { Link } from "react-router-dom";
+
+import Myheader from "../components/Myheader";
 import "./Profileedit.css";
 
 import profileImg from "../assets/profile.png";
@@ -9,7 +12,6 @@ import homeImg from "../assets/home.png";
 import jobImg from "../assets/job.png";
 import hometownImg from "../assets/hometown.png";
 import schoolImg from "../assets/school.png";
-import Myheader from "../components/Myheader";
 
 const Profileedit = ({ onClickWho }) => {
   const [name, setName] = useState("");
@@ -17,6 +19,7 @@ const Profileedit = ({ onClickWho }) => {
   const [hometown, setHometown] = useState("");
   const [job, setJob] = useState("");
   const [school, setSchool] = useState("");
+
   const onChangeName = (e) => {
     setName(e.target.value);
   };
@@ -32,6 +35,7 @@ const Profileedit = ({ onClickWho }) => {
   const onChangeSchool = (e) => {
     setSchool(e.target.value);
   };
+
   return (
     <div>
       <body>
@@ -75,21 +79,23 @@ const Profileedit = ({ onClickWho }) => {
                   value={job}
                   onChange={onChangeJob}
                 />
-                <button
-                  type="button"
-                  className="introduce-save"
-                  onClick={() => {
-                    onClickWho({
-                      name,
-                      home,
-                      hometown,
-                      job,
-                      school,
-                    });
-                  }}
-                >
-                  저장하기
-                </button>{" "}
+                <Link to="/Private">
+                  <button
+                    type="button"
+                    className="introduce-save"
+                    onClick={() => {
+                      onClickWho({
+                        name,
+                        home,
+                        hometown,
+                        job,
+                        school,
+                      });
+                    }}
+                  >
+                    저장하기
+                  </button>
+                </Link>
               </div>
               <div className="introduce-something">
                 <img className="introduce-me" src={schoolImg} alt={schoolImg} />
