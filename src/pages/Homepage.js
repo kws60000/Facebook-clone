@@ -1,11 +1,10 @@
 import React from "react";
-import profile from "../assets/profile.png";
 import Post from "../components/Post";
 import { connect } from "react-redux";
 
 import "./Homepage.css";
 
-const Homepage = ({ addWho }) => {
+const Homepage = ({ addWho, addImgProfile }) => {
   return (
     <div>
       <div className="App">
@@ -15,7 +14,9 @@ const Homepage = ({ addWho }) => {
               <aside id="main-body-left">
                 <ul class="user-info-list">
                   <li>
-                    <img src={profile} alt={profile} />
+                    {addImgProfile.map((add) => (
+                      <img key={add.id} src={add.profile} alt={add.profile} />
+                    ))}
                     {addWho.map((who) => (
                       <div key={who.whoId}>{who.name}</div>
                     ))}
@@ -81,6 +82,7 @@ const Homepage = ({ addWho }) => {
 const mapStateToProps = (state) => {
   return {
     addWho: state.addWho,
+    addImgProfile: state.addImgProfile,
   };
 };
 // Store에 저장된 개인정보의 현재 상태를 Props로 가져온다.

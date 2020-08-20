@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addName } from "../modules/addWho";
+import { Link } from "react-router-dom";
+
+import Myheader from "../components/Myheader";
 import "./Profileedit.css";
 
-import profile from "../assets/profile.png";
+import profileImg from "../assets/profile.png";
 import produce from "../assets/produce.png";
 import homeImg from "../assets/home.png";
 import jobImg from "../assets/job.png";
 import hometownImg from "../assets/hometown.png";
 import schoolImg from "../assets/school.png";
-import Myheader from "../components/Myheader";
 
 const Profileedit = ({ onClickWho }) => {
   const [name, setName] = useState("");
@@ -17,6 +19,7 @@ const Profileedit = ({ onClickWho }) => {
   const [hometown, setHometown] = useState("");
   const [job, setJob] = useState("");
   const [school, setSchool] = useState("");
+
   const onChangeName = (e) => {
     setName(e.target.value);
   };
@@ -32,6 +35,7 @@ const Profileedit = ({ onClickWho }) => {
   const onChangeSchool = (e) => {
     setSchool(e.target.value);
   };
+
   return (
     <div>
       <body>
@@ -44,7 +48,11 @@ const Profileedit = ({ onClickWho }) => {
               <div className="produce-headerline">프로필 수정</div>
             </div>
             <ul className="introduce-somethings">
-              <img className="introduce-profile" src={profile} alt={profile} />
+              <img
+                className="introduce-profile"
+                src={profileImg}
+                alt={profileImg}
+              />
               <div className="introduce-something">
                 <img className="introduce-me" src={homeImg} alt={homeImg} />
                 <div className="introduce-blue">이름 </div>{" "}
@@ -71,22 +79,23 @@ const Profileedit = ({ onClickWho }) => {
                   value={job}
                   onChange={onChangeJob}
                 />
-                <button
-                  type="button"
-                  className="introduce-save"
-                  onClick={() => {
-                    onClickWho({
-                      whoId: Math.random(),
-                      name,
-                      home,
-                      hometown,
-                      job,
-                      school,
-                    });
-                  }}
-                >
-                  저장하기
-                </button>{" "}
+                <Link to="/Private">
+                  <button
+                    type="button"
+                    className="introduce-save"
+                    onClick={() => {
+                      onClickWho({
+                        name,
+                        home,
+                        hometown,
+                        job,
+                        school,
+                      });
+                    }}
+                  >
+                    저장하기
+                  </button>
+                </Link>
               </div>
               <div className="introduce-something">
                 <img className="introduce-me" src={schoolImg} alt={schoolImg} />
